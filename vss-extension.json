@@ -2,12 +2,13 @@
     "manifestVersion": 1,
     "id": "git-branch-name",
     "publisher": "KennethLausdahl",
-    "version": "1.0.45",
+    "version": "1.0.46",
     "name": "Get branch name from workitem id",
     "description": "A simple extension for reating Github compatible branch names from workitems",
     "public": false,
     "categories": [
-        "Azure Repos","Azure Boards"
+        "Azure Repos",
+        "Azure Boards"
     ],
     "scopes": [
         "vso.work"
@@ -19,6 +20,23 @@
     ],
     "contributions": [
         {
+            "id": "enable-my-extension",
+            "type": "ms.vss-web.feature",
+            "description": "Enable Get branch name from workitem",
+            "targets": [
+                "ms.vss-web.managed-features"
+            ],
+            "properties": {
+                "name": "Get branch name from wokringitem feature toggle",
+                "userConfigurable": false,
+                "hostConfigurable": true,
+                "hostScopes": [
+                    "project"
+                ],
+                "defaultState": false
+            }
+        },
+        {
             "id": "contextMenu",
             "type": "ms.vss-web.action",
             "targets": [
@@ -28,7 +46,15 @@
                 "group": "contributed",
                 "uri": "static/index.html",
                 "text": "New branch name"
-            }
+            },
+            "constraints": [
+                {
+                    "name": "Feature",
+                    "properties": {
+                        "featureId": "KennethLausdahl.git-branch-name.enable-my-extension"
+                    }
+                }
+            ]
         },
         {
             "id": "branching-form",
@@ -37,7 +63,15 @@
             "targets": [],
             "properties": {
                 "uri": "static/branching-form.html?branch={{branch}}"
-            }
+            },
+            "constraints": [
+                {
+                    "name": "Feature",
+                    "properties": {
+                        "featureId": "KennethLausdahl.git-branch-name.enable-my-extension"
+                    }
+                }
+            ]
         }
     ],
     "files": [
