@@ -1,0 +1,58 @@
+{
+    "manifestVersion": 1,
+    "id": "git-branch-name",
+    "publisher": "KennethLausdahl",
+    "version": "1.0.45",
+    "name": "Get branch name from workitem id",
+    "description": "A simple extension for reating Github compatible branch names from workitems",
+    "public": false,
+    "categories": [
+        "Azure Repos","Azure Boards"
+    ],
+    "scopes": [
+        "vso.work"
+    ],
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],
+    "contributions": [
+        {
+            "id": "contextMenu",
+            "type": "ms.vss-web.action",
+            "targets": [
+                "ms.vss-work-web.work-item-context-menu"
+            ],
+            "properties": {
+                "group": "contributed",
+                "uri": "static/index.html",
+                "text": "New branch name"
+            }
+        },
+        {
+            "id": "branching-form",
+            "type": "ms.vss-web.control",
+            "description": "The content displayed in the dialog",
+            "targets": [],
+            "properties": {
+                "uri": "static/branching-form.html?branch={{branch}}"
+            }
+        }
+    ],
+    "files": [
+        {
+            "path": "dist",
+            "addressable": true
+        },
+        {
+            "path": "static",
+            "addressable": true
+        },
+        {
+            "path": "node_modules/vss-web-extension-sdk/lib",
+            "addressable": true,
+            "packagePath": "lib"
+        }
+    ]
+}

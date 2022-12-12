@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="../lib/VSS.SDK.min.js"></script>
+
+</head>
+
+<body>
+    <h2 id="header">Branch Name</h2>
+    <p>
+        <label>Feature branch:</label>
+        <button onclick="copyFeatureBranch()">Copy</button>
+    </p>
+    <p>
+        <label>Bug branch:</label>
+        <button onclick="copyBugBranch()" >Copy</button>
+    </p>
+    <p>
+        <label>Basic branch:</label>
+        <button onclick="copyBasicBranch()" >Copy</button>
+    </p>
+
+    <script type="text/javascript">
+        VSS.init({
+            usePlatformScripts: true,
+            usePlatformStyles: true
+        });
+
+
+        function copyHelper(text) {
+            var textArea = document.createElement("textarea");
+            textArea.value = text;
+
+            // Avoid scrolling to bottom
+            textArea.style.top = "0";
+            textArea.style.left = "0";
+            textArea.style.position = "fixed";
+
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+
+            try {
+                var successful = document.execCommand('copy');
+                var msg = successful ? 'successful' : 'unsuccessful';
+                console.log('Fallback: Copying text command was ' + msg);
+            } catch (err) {
+                console.error('Fallback: Oops, unable to copy', err);
+            }
+
+            document.body.removeChild(textArea);
+        }
+
+        function getBranch() {
+
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            let branch = urlParams.get("branch");
+            return branch;
+        }
+
+
+        function copyFeatureBranch() {
+            copyHelper("feature/" + getBranch());
+        }
+        function copyBugBranch() {
+            copyHelper("bug/" + getBranch());
+        }
+        function copyBasicBranch() {
+            copyHelper( getBranch());
+        }
+
+    </script>
+</body>
+
+</html>

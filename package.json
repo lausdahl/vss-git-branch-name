@@ -1,0 +1,23 @@
+{
+  "name": "git-branch-name",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "vss-web-extension-sdk": "^5.141.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.4"
+  },
+  "scripts": {
+    "build": "tsc -p .",
+    "postbuild": "npm run gallery-publish",
+    "package": "tfx extension create",
+    "gallery-publish": "tfx extension publish --rev-version",
+    "clean": "rimraf ./dist && rimraf ./*.vsix"
+  }
+}
