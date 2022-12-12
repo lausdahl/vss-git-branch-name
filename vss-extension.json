@@ -2,10 +2,45 @@
     "manifestVersion": 1,
     "id": "git-branch-name",
     "publisher": "KennethLausdahl",
+<<<<<<< HEAD
     "version": "1.0.46",
+=======
+    "version": "1.0.49",
+>>>>>>> 99c0b34 (added urls and logo)
     "name": "Get branch name from workitem id",
     "description": "A simple extension for reating Github compatible branch names from workitems",
     "public": false,
+    "icons": {
+        "default": "images/9043850_branch_icon.png"
+    },
+    "screenshots": [
+        {
+            "path": "images/contextmenu.png"
+        },
+        {
+            "path": "images/dialog.png"
+        }
+    ],
+    "content": {
+        "details": {
+            "path": "overview.md"
+        }
+    },
+    "links": {
+        "getstarted": {
+            "uri": "https://github.com/lausdahl/vss-git-branch-name"
+        },
+        "learn": {
+            "uri": "https://github.com/lausdahl/vss-git-branch-name"
+        },
+        "support": {
+            "uri": "https://github.com/lausdahl/vss-git-branch-name/issues"
+        }
+    },
+    "repository":{
+        "type":"git",
+        "url":"https://github.com/lausdahl/vss-git-branch-name.git"
+    },
     "categories": [
         "Azure Repos",
         "Azure Boards"
