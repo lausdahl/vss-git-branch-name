@@ -4,7 +4,7 @@
     "publisher": "KennethLausdahl",
     "version": "1.0.52",
     "name": "Get branch name from workitem id",
-    "description": "A simple extension for reating Github compatible branch names from workitems",
+    "description": "A simple extension for reading Github compatible branch names from workitems",
     "public": false,
     "icons": {
         "default": "images/9043850_branch_icon.png"
@@ -34,8 +34,8 @@
         }
     },
     "repository":{
-        "type":"git",
-        "url":"https://github.com/lausdahl/vss-git-branch-name.git"
+        "type": "git",
+        "url": "https://github.com/lausdahl/vss-git-branch-name.git"
     },
     "categories": [
         "Azure Repos",
@@ -58,7 +58,7 @@
                 "ms.vss-web.managed-features"
             ],
             "properties": {
-                "name": "Get branch name from wokringitem feature toggle",
+                "name": "Get branch name from working item feature toggle",
                 "userConfigurable": false,
                 "hostConfigurable": true,
                 "hostScopes": [
